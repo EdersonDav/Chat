@@ -1,0 +1,25 @@
+{
+  "name": "chat_simple",
+  "version": "1.0.0",
+  "description": "Chat simple for study of socket.io",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdersonDav/chat_simple.git"
+  },
+  "author": "EdersonDav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdersonDav/chat_simple/issues"
+  },
+  "homepage": "https://github.com/EdersonDav/chat_simple#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0",
+    "sucrase": "^3.15.0"
+  }
+}
