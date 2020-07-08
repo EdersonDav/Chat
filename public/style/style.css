@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#messages {
+  height: 80vh;
+  background-color: rgb(213, 236, 236);
+  width: 50%;
+  margin: auto;
+  min-width: 500px;
+  margin-bottom: 20px;
+}
