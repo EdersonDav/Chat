@@ -7,16 +7,18 @@ const messages = [];
 
 app.use("/", express.static(path.resolve(__dirname, "..", "public")));
 
-const server = app.listen(3000, () => {
-  console.log("server running port 3000");
+const server = app.listen(5000, () => {
+  console.log("server running port 5000");
 });
 
 const io = socketIO(server);
 
 io.on("connection", (socket) => {
   console.log("new_connection");
+  socket.emit("update_messages", messages);
   socket.on("new_connection", (data) => {
-    message.push(data.message);
+    messages.push(data.messages);
+
     io.emit("update_messages", messages);
   });
 });
