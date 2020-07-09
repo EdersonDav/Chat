@@ -3,23 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="assets/style/style.css" />
     <title>Chat</title>
   </head>
   <body>
     <div class="container">
-      <form name="form_user_name" id="form_user">
+      <!-- <form name="form_user_name" id="form_user">
         <input type="text" name="user" id="user" />
         <button type="submit">Register username</button>
-      </form>
-      <div id="messages"></div>
-
-      <form name="form_msg_name" id="form_msg">
-        <input type="text" name="msg" id="msgInput" />
-        <button type="submit">Send</button>
-      </form>
+      </form> -->
+      <div class="boardmessages">
+        <div id="messages"></div>
+        <form name="form_msg_name" class="formSendMessage" id="form_msg">
+          <input
+            type="text"
+            name="msg"
+            class="inputSendMessage"
+            id="msgInput"
+          />
+          <button type="submit" class="btntSendMessage">
+            <i class="icon-send"></i>
+          </button>
+        </form>
+      </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="js/script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

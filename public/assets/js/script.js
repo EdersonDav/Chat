@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#form_msg");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (!username) {
-      alert("Before entering the chat, register your username");
-      return;
-    }
+    // if (!username) {
+    //   alert("Before entering the chat, register your username");
+    //   return;
+    // }
     const message = document.forms["form_msg_name"]["msg"].value;
     document.forms["form_msg_name"]["msg"].value = "";
     socket.emit("new_connection", { username: username, messages: message });
