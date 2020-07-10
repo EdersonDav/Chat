@@ -16,7 +16,14 @@ function updateMessages(messages) {
   messages.forEach((message) => {
     console.log(message);
 
-    listMessages += `<li>${message.username} : ${message.messages}</li>`;
+    listMessages += `<li class="they">
+                        <span class="username"> 
+                          ${message.username}
+                        </span> 
+                        <span class="msg">
+                          ${message.messages}
+                        </span>
+                      </li>`;
   });
   listMessages += "</ul>";
 
@@ -27,10 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#form_msg");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // if (!username) {
-    //   alert("Before entering the chat, register your username");
-    //   return;
-    // }
+    if (!username) {
+      alert("Before entering the chat, register your username");
+      return;
+    }
+    document.querySelector(".name").innerHTML = username;
     const message = document.forms["form_msg_name"]["msg"].value;
     document.forms["form_msg_name"]["msg"].value = "";
     socket.emit("new_connection", { username: username, messages: message });
