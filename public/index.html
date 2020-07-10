@@ -12,21 +12,16 @@
         <input type="text" name="user" id="user" />
         <button type="submit">Register username</button>
       </form>
+      <span class="name"></span>
       <div class="boardmessages">
-        <span class="name"></span>
         <div id="messages"></div>
-        <form name="form_msg_name" class="formSendMessage" id="form_msg">
-          <input
-            type="text"
-            name="msg"
-            class="inputSendMessage"
-            id="msgInput"
-          />
-          <button type="submit" class="btntSendMessage">
-            <i class="icon-send"></i>
-          </button>
-        </form>
       </div>
+      <form name="form_msg_name" class="formSendMessage" id="form_msg">
+        <input type="text" name="msg" class="inputSendMessage" id="msgInput" />
+        <button type="submit" class="btntSendMessage">
+          <i class="icon-send"></i>
+        </button>
+      </form>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="assets/js/script.js"></script>

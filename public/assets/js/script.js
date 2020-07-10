@@ -16,11 +16,13 @@ function updateMessages(messages) {
   messages.forEach((message) => {
     console.log(message);
 
-    listMessages += `<li class="they">
-                        <span class="username"> 
+    let classLi = setClass(message.username);
+
+    listMessages += `<li class="${classLi}">
+                        <span class="username usernamegl"> 
                           ${message.username}
                         </span> 
-                        <span class="msg">
+                        <span class="msg msggl">
                           ${message.messages}
                         </span>
                       </li>`;
@@ -53,3 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function setClass(user) {
+  if (user == username) {
+    return "you";
+  } else {
+    return "they";
+  }
+}
