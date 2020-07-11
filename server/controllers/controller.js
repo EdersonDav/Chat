@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import socketIO from "socket.io";
+import UserModel from "../models/User";
 
 const messages = [];
 
@@ -24,8 +25,20 @@ const controller = {
     });
   },
 
-  userRegister: (req, res) => {
-    res.send("register");
+  userRegister: async (req, res) => {
+    const user = new UserModel({
+      //getting body params of requisition
+      name: req.body.name,
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    try {
+      const savedUser = await user.save();
+      res.send(savedUser);
+    } catch (error) {
+      res.send(error);
+    }
   },
 
   userLogin: (req, res) => {
