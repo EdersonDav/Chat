@@ -11,6 +11,7 @@ const controller = {
   loginPath: express.static(
     path.resolve(__dirname, "..", "..", "public", "views", "login")
   ),
+
   messagesRooms: (server) => {
     const io = socketIO(server);
     const room = io.of(`/room`).on("connection", (socket) => {
@@ -21,6 +22,14 @@ const controller = {
         room.emit("update_messages", messages);
       });
     });
+  },
+
+  userRegister: (req, res) => {
+    res.send("register");
+  },
+
+  userLogin: (req, res) => {
+    res.send("login");
   },
 };
 export default controller;
