@@ -6,6 +6,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import validate from "./controllerValidate";
 
+let tokenLogin = "";
+
 const messages = [];
 
 const controller = {
@@ -52,11 +54,15 @@ const controller = {
       process.env.TOKEN_JWT
     );
     res.header("auth-token", token);
+    tokenLogin = token;
+    console.log(tokenLogin);
+
     return res.status(200).send("Ok");
   },
 
   auth: (req, res, next) => {
-    const token = req.header("auth-token");
+    // const token = req.header("auth-token");
+    const token = tokenLogin;
     if (!token) {
       res.status(401).send("Access denied");
     }
@@ -67,7 +73,7 @@ const controller = {
     } catch (error) {
       res.status(401).send("Access denied");
     }
-    res.send("Token ok");
+    // res.send("Token ok");
   },
 
   roomPath: express.static(
