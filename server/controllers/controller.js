@@ -32,13 +32,13 @@ const controller = {
       username: req.body.username,
     });
     if (selectedUsername) {
-      return res.send("Username already existe");
+      return res.status(400).send("Username already existe");
     }
 
     //verify if email already exists
     const seletecEmail = await UserModel.findOne({ email: req.body.email });
     if (seletecEmail) {
-      return res.send("Email already exists");
+      return res.status(400).send("Email already exists");
     }
 
     const user = new UserModel({
@@ -57,7 +57,22 @@ const controller = {
     }
   },
 
-  userLogin: (req, res) => {
+  userLogin: async (req, res) => {
+    //Selected user in database where email == emais body
+    const userSelected = await UserModel.findOne({ email: req.body.email });
+    if (!userSelected) {
+      return res.status(400).send("Email or Passworld not exists");
+    }
+
+    //compare password, the password database and password body
+    const verifyPassword = bcrypt.compareSync(
+      req.body.password,
+      userSelected.password
+    );
+    if (!verifyPassword) {
+      return res.status(400).send("Email or Passworld not exists");
+    }
+
     res.send("login");
   },
 };
