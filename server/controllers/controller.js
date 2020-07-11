@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import socketIO from "socket.io";
 import UserModel from "../models/User";
+import bcrypt from "bcryptjs";
 
 const messages = [];
 
@@ -26,18 +27,33 @@ const controller = {
   },
 
   userRegister: async (req, res) => {
+    //verify if username already exists
+    const selectedUsername = await UserModel.findOne({
+      username: req.body.username,
+    });
+    if (selectedUsername) {
+      return res.send("Username already existe");
+    }
+
+    //verify if email already exists
+    const seletecEmail = await UserModel.findOne({ email: req.body.email });
+    if (seletecEmail) {
+      return res.send("Email already exists");
+    }
+
     const user = new UserModel({
       //getting body params of requisition
       name: req.body.name,
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: bcrypt.hashSync(req.body.password),
     });
     try {
       const savedUser = await user.save();
+      //return used save in database
       res.send(savedUser);
     } catch (error) {
-      res.send(error);
+      res.status(400).send(error);
     }
   },
 
