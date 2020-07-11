@@ -1,9 +1,13 @@
 import express from "express";
-import controler from "../controllers/controller";
+import controller from "../controllers/controller";
 const router = express.Router();
 
-router.use("/room", controler.roomPath);
+router.post("/register", controller.register);
 
-router.get("/", controler.loginPath);
+router.post("/login", controller.login);
+
+router.use("/room", controller.roomPath);
+
+router.get("/", controller.loginPath);
 
 export default router;

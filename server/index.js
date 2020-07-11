@@ -1,29 +1,17 @@
 import express from "express";
+import dotenv from "dotenv";
 import router from "./router/router";
-import controler from "./controllers/controller";
+import controller from "./controllers/controller";
+import DB from "./database/connectedDatabase";
 
-// import path from "path";
 const app = express();
+dotenv.config();
+DB.connect();
 
-app.use("/", router);
+app.use("/", express.json(), router);
 
-const server = app.listen(5000, () => {
-  console.log("server running port 5000");
+const server = app.listen(process.env.PORT, () => {
+  console.log("server running");
 });
 
-controler.messagesRooms(server);
-// let i = 0;
-
-// while (i < controler.rooms.length) {
-//   controler.messagesRooms(server, controler.rooms[i]);
-//   console.log(controler.rooms[i]);
-//   i++;
-// }
-
-// controler.rooms.forEach((room) => {
-//   controler.messagesRooms(server, room);
-// });
-
-// for (let rom of controler.rooms) {
-//   controler.messagesRooms(server, rom);
-// }
+controller.messagesRooms(server);
