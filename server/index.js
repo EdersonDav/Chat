@@ -1,12 +1,9 @@
 import express from "express";
-import socketIO from "socket.io";
 import router from "./router/router";
+import controler from "./controllers/controller";
 
 // import path from "path";
 const app = express();
-
-// const messages = [];
-const messages = { room1: [], room2: [] };
 
 app.use("/", router);
 
@@ -14,24 +11,19 @@ const server = app.listen(5000, () => {
   console.log("server running port 5000");
 });
 
-const io = socketIO(server);
+controler.messagesRooms(server);
+// let i = 0;
 
-const room1 = io.of("/room1").on("connection", (socket) => {
-  console.log("new_connection");
-  socket.emit("update_messages", messages.room1);
-  socket.on("new_connection", (data) => {
-    messages.room1.push(data);
+// while (i < controler.rooms.length) {
+//   controler.messagesRooms(server, controler.rooms[i]);
+//   console.log(controler.rooms[i]);
+//   i++;
+// }
 
-    room1.emit("update_messages", messages.room1);
-  });
-});
+// controler.rooms.forEach((room) => {
+//   controler.messagesRooms(server, room);
+// });
 
-const room2 = io.of("/room2").on("connection", (socket) => {
-  console.log("new_connection");
-  socket.emit("update_messages", messages.room2);
-  socket.on("new_connection", (data) => {
-    messages.room2.push(data);
-
-    room2.emit("update_messages", messages.room2);
-  });
-});
+// for (let rom of controler.rooms) {
+//   controler.messagesRooms(server, rom);
+// }

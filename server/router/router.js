@@ -1,23 +1,9 @@
 import express from "express";
-import path from "path";
+import controler from "../controllers/controller";
 const router = express.Router();
 
-router.use(
-  "/room1",
-  express.static(
-    path.resolve(__dirname, "..", "..", "public", "views", "rooms")
-  )
-);
-router.use(
-  "/room2",
-  express.static(
-    path.resolve(__dirname, "..", "..", "public", "views", "rooms")
-  )
-);
+router.use("/room", controler.roomPath);
 
-router.get(
-  "/",
-  express.static(path.resolve(__dirname, "..", "..", "public", "views", "init"))
-);
+router.get("/", controler.loginPath);
 
 export default router;
