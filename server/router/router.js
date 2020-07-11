@@ -8,6 +8,6 @@ router.post("/login", controller.userLogin);
 
 router.use("/room", controller.roomPath);
 
-router.get("/", controller.loginPath);
+router.get("/", controller.auth, controller.loginPath);
 
 export default router;

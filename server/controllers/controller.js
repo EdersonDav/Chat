@@ -3,6 +3,7 @@ import path from "path";
 import socketIO from "socket.io";
 import UserModel from "../models/User";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const messages = [];
 
@@ -72,8 +73,23 @@ const controller = {
     if (!verifyPassword) {
       return res.status(400).send("Email or Passworld not exists");
     }
-
+    const token = jwt.sign({ id: userSelected._id }, process.env.TOKE_JWT);
+    res.header("auth", token);
     res.send("login");
+  },
+
+  auth: (req, res, next) => {
+    const token = req.header("auth");
+    if (!token) {
+      return res.status(401).send("Access Denied");
+    }
+    try {
+      const verifyToken = jwt.verify(token, process.env.TOKE_JWT);
+      req.user = verifyToken;
+      next();
+    } catch (error) {
+      return res.status(401).send("Access Denied");
+    }
   },
 };
 export default controller;
