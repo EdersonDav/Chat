@@ -4,6 +4,7 @@ import socketIO from "socket.io";
 import UserModel from "../models/User";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import validate from "./validateFields";
 
 const messages = [];
 
@@ -28,6 +29,11 @@ const controller = {
   },
 
   userRegister: async (req, res) => {
+    //Validate fields input
+    const { error } = validate.registerValidate(req.body);
+    if (error) {
+      return res.status(400).send(error.message);
+    }
     //verify if username already exists
     const selectedUsername = await UserModel.findOne({
       username: req.body.username,
@@ -59,6 +65,12 @@ const controller = {
   },
 
   userLogin: async (req, res) => {
+    //Validate fields input
+    const { error } = validate.loginValidate(req.body);
+    if (error) {
+      return res.status(400).send(error.message);
+    }
+
     //Selected user in database where email == emais body
     const userSelected = await UserModel.findOne({ email: req.body.email });
     if (!userSelected) {
