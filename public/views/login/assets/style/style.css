@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  background: rgb(175, 255, 187);
+  background: linear-gradient(
+    106deg,
+    rgba(175, 255, 187, 0.9808298319327731) 0%,
+    rgba(188, 255, 200, 1) 23%,
+    rgba(178, 255, 218, 1) 46%,
+    rgba(255, 255, 255, 1) 79%
+  );
+}
+.img {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  margin-left: 0;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+svg {
+  height: 70%;
+}
+#Vector_163 {
+  animation: animateDot 0.5s 0.5s linear infinite alternate;
+}
+#Vector_164 {
+  animation: animateDot 0.5s 0.8s linear infinite alternate;
+}
+#Vector_165 {
+  animation: animateDot 0.5s 1s linear infinite alternate;
+}
+
+@keyframes animateDot {
+  from {
+    transform: rotateX(0deg);
+    box-shadow: none;
+  }
+  to {
+    transform: rotateX(15deg);
+  }
+}
+
+#Vector {
+  z-index: 1;
+}
+
+#Vector_201 {
+  z-index: -10;
+}
+
+#bramch_sheets_bottom {
+  animation: animateBranch 5s 1s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+#branch_sheets_top {
+  animation: animateBranch 5s 1s ease-in-out infinite alternate-reverse;
+  transform-origin: bottom;
+}
+
+@keyframes animateBranch {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(30deg);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  margin-right: 0;
+  width: 40%;
+}
