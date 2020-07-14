@@ -3,7 +3,7 @@ var params = {
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "chat.json",
+  path: "./assets/js/chat.json",
 };
 
 var anim;
