@@ -15,7 +15,9 @@ const controller = {
   loginPath: express.static(
     path.resolve(__dirname, "..", "..", "public", "views", "login")
   ),
-
+  RegisterPath: express.static(
+    path.resolve(__dirname, "..", "..", "public", "views", "register")
+  ),
   messagesRooms: (server) => {
     const io = socketIO(server);
     const room = io.of(`/room`).on("connection", (socket) => {
