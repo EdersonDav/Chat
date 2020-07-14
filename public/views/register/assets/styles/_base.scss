@@ -1,0 +1,23 @@
+.flex_content {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  @extend .flex_content;
+  background-image: linear-gradient(
+    to right,
+    #2f5081,
+    #244b91,
+    #26449f,
+    #3739a8,
+    #5026ae
+  );
+}
