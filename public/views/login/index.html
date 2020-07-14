@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="./assets/style/style_image_svg.css" />
+    <link rel="stylesheet" href="./assets/style/style_form_login.css" />
     <title>Login</title>
   </head>
   <body>
@@ -1342,21 +1343,39 @@
         </defs>
       </svg>
     </div>
-    <div class="form">
-      <div class="div-email">
-        <input type="text" name="email" id="email" />
-        <label for="lbl-email" class="lbl-email">
-          <span class="txt-email">Email</span>
-        </label>
-      </div>
+    <div class="containerForm">
+      <form class="form">
+        <h1>Hello my friend</h1>
+        <div class="div-email">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-email" class="lbl-email">
+            <span class="txt-email">Email</span>
+          </label>
+        </div>
 
-      <div class="div-password">
-        <input type="text" name="password" id="password" />
-        <label for="lbl-password" class="lbl-password">
-          <span class="txt-password">Password</span>
-        </label>
-      </div>
+        <div class="div-password">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-password" class="lbl-password">
+            <span class="txt-password">Password</span>
+          </label>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
     </div>
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

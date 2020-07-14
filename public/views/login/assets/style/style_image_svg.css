@@ -6,13 +6,13 @@
 body {
   display: flex;
   justify-content: center;
-  background: rgb(175, 255, 187);
+  background: rgb(189, 250, 198);
   background: linear-gradient(
     106deg,
-    rgba(175, 255, 187, 0.9808298319327731) 0%,
-    rgba(188, 255, 200, 1) 23%,
-    rgba(178, 255, 218, 1) 46%,
-    rgba(255, 255, 255, 1) 79%
+    rgba(189, 250, 198, 0.9808298319327731) 3%,
+    rgba(160, 210, 169, 1) 35%,
+    rgba(84, 200, 111, 1) 69%,
+    rgba(66, 184, 105, 1) 79%
   );
 }
 .img {
@@ -72,15 +72,4 @@ svg {
   to {
     transform: rotateY(30deg);
   }
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: 100vh;
-  margin-right: 0;
-  width: 40%;
 }
