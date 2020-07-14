@@ -3,10 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Sign Up</title>
   </head>
   <body>
     <div class="animation"></div>
+
+    <div class="containerForm">
+      <form class="form" method="POST">
+        <h1>Welcome to Chat!</h1>
+
+        <div class="div-name">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-name" class="lbl-name">
+            <span class="txt-name">Name</span>
+          </label>
+        </div>
+
+        <div class="div-username">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-username" class="lbl-username">
+            <span class="txt-username">Username</span>
+          </label>
+        </div>
+
+        <div class="div-email">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-email" class="lbl-email">
+            <span class="txt-email">Email</span>
+          </label>
+        </div>
+
+        <div class="div-password">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-password" class="lbl-password">
+            <span class="txt-password">Password</span>
+          </label>
+        </div>
+
+        <div class="div-confirm-password">
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            autocomplete="off"
+            required
+          />
+          <label for="lbl-confirm-password" class="lbl-confirm-password">
+            <span class="txt-confirm-password">Confirm Password</span>
+          </label>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div class="register">
+          <p>
+            Already have an account ?
+            <a href="../register/index.html">Sign in</a>
+          </p>
+        </div>
+      </form>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.0/lottie.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
