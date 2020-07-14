@@ -97,7 +97,8 @@ input:valid + label::after {
 
 .div-email,
 .div-password,
-button {
+button,
+.register {
   margin-top: 50px;
 }
 
@@ -111,4 +112,10 @@ button {
   color: #fff;
   cursor: pointer;
   box-shadow: 0px 8px 22px -4px rgba(55, 255, 33, 1);
+}
+
+.register a {
+  font-weight: bold;
+  color: #19bb3f;
+  text-decoration: none;
 }
