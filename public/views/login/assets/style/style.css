@@ -6,6 +6,31 @@
   font-family: "Nunito", sans-serif;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  background: rgb(189, 250, 198);
+  background: linear-gradient(
+    106deg,
+    rgba(189, 250, 198, 0.9808298319327731) 3%,
+    rgba(160, 210, 169, 1) 35%,
+    rgba(84, 200, 111, 1) 69%,
+    rgba(66, 184, 105, 1) 79%
+  );
+}
+.img {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  margin-left: 0;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+img {
+  width: 98%;
+}
+
 .containerForm {
   display: flex;
   flex-direction: column;
