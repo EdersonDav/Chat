@@ -3,23 +3,20 @@
   justify-content: center;
 }
 
-$login_color: #19bb3f;
-
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
-}
-
-body {
-  @extend .flex_content;
   background-image: linear-gradient(
     to right top,
-    #4b584e,
-    #45644b,
-    #2a743b,
-    #24973f,
-    #19bb3f
+    #cfc1b7,
+    #d8beab,
+    #e1baa0,
+    #eab695,
+    #f2b28b
   );
+}
+
+@mixin shadow() {
+  box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.75);
 }

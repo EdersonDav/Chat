@@ -26,9 +26,9 @@
     background-color: #fff;
     width: 80%;
     min-width: 374px;
-    max-width: 375px;
+    max-width: 400px;
     height: 600px;
-    border-radius: 5%;
+    border-radius: 5px;
     box-shadow: 1px 10px 11px -3px rgb(22, 0, 51);
 
     h1 {
@@ -58,7 +58,7 @@
       &:valid + label span {
         transform: translateY(-150%);
         font-size: 0.8rem;
-        color: #5026ae;
+        color: $register_color;
       }
 
       &:focus + label::after,
@@ -84,7 +84,7 @@
       bottom: -1px;
       height: 100%;
       width: 100%;
-      border-bottom: 3px solid #5026ae;
+      border-bottom: 3px solid $register_color;
       transform: translateX(-100%);
       transition: transform 0.8s ease;
     }
@@ -103,7 +103,7 @@
       width: 50%;
       border-style: none;
       border-radius: 10px;
-      background-color: #5026ae;
+      background-color: $register_color;
       font-size: 1.2rem;
       color: #fff;
       cursor: pointer;
@@ -114,7 +114,7 @@
 
     .login a {
       font-weight: bold;
-      color: #411e8b;
+      color: $register_color;
       text-decoration: none;
     }
   }

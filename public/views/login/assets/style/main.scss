@@ -74,7 +74,7 @@
       bottom: -2px;
       height: 100%;
       width: 100%;
-      border-bottom: 3px solid #54c86f;
+      border-bottom: 3px solid $login_color;
       transform: translateX(-100%);
       transition: transform 0.8s ease;
     }
@@ -92,7 +92,7 @@
       &:valid + label span {
         transform: translateY(-150%);
         font-size: 0.8rem;
-        color: #54c86f;
+        color: $login_color;
       }
 
       &:focus + label::after,
@@ -113,7 +113,7 @@
       width: 50%;
       border-style: none;
       border-radius: 10px;
-      background-color: #54c86f;
+      background-color: $login_color;
       font-size: 1.2rem;
       color: #fff;
       cursor: pointer;
@@ -122,7 +122,7 @@
 
     .register a {
       font-weight: bold;
-      color: #19bb3f;
+      color: $login_color;
       text-decoration: none;
     }
   }
