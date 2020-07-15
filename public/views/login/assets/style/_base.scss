@@ -13,7 +13,8 @@ $login_color: #19bb3f;
 }
 
 body {
-  @extend .flex_content;
+  height: 100vh;
+  display: flex;
   background-image: linear-gradient(
     to right top,
     #4b584e,

@@ -28,9 +28,9 @@
     margin-top: 40px;
     min-width: 350px;
     overflow-y: scroll;
-  }
-  .boardmessages::-webkit-scrollbar {
-    width: 0;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 
   .name {
