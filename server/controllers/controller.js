@@ -34,20 +34,20 @@ const controller = {
     //Validate fields input
     const { error } = validate.registerValidate(req.body);
     if (error) {
-      return res.status(400).send(error.message);
+      return res.status(400).json({ message: error.message });
     }
     //verify if username already exists
     const selectedUsername = await UserModel.findOne({
       username: req.body.username,
     });
     if (selectedUsername) {
-      return res.status(400).send("Username already existe");
+      return res.status(400).json({ message: "Username already existe" });
     }
 
     //verify if email already exists
     const seletecEmail = await UserModel.findOne({ email: req.body.email });
     if (seletecEmail) {
-      return res.status(400).send("Email already exists");
+      return res.status(400).json({ message: "Email already exists" });
     }
 
     const user = new UserModel({
@@ -60,9 +60,9 @@ const controller = {
     try {
       const savedUser = await user.save();
       //return used save in database
-      res.send(savedUser);
+      res.json({ message: savedUser });
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).json({ message: error });
     }
   },
 
@@ -70,13 +70,13 @@ const controller = {
     //Validate fields input
     const { error } = validate.loginValidate(req.body);
     if (error) {
-      return res.status(400).send(error.message);
+      return res.status(400).json({ message: error.message });
     }
 
     //Selected user in database where email == emais body
     const userSelected = await UserModel.findOne({ email: req.body.email });
     if (!userSelected) {
-      return res.status(400).send("Email or Passworld not exists");
+      return res.status(400).json({ message: "Email or Passworld not exists" });
     }
 
     //compare password, the password database and password body
@@ -85,7 +85,7 @@ const controller = {
       userSelected.password
     );
     if (!verifyPassword) {
-      return res.status(400).send("Email or Passworld not exists");
+      return res.status(400).json({ message: "Email or Passworld not exists" });
     }
     const token = jwt.sign({ id: userSelected._id }, process.env.TOKE_JWT);
     res.header("auth", token);
@@ -95,14 +95,14 @@ const controller = {
   auth: (req, res, next) => {
     const token = req.header("auth");
     if (!token) {
-      return res.status(401).send("Access Denied");
+      return res.status(401).json({ message: "Access Denied" });
     }
     try {
       const verifyToken = jwt.verify(token, process.env.TOKE_JWT);
       req.user = verifyToken;
       next();
     } catch (error) {
-      return res.status(401).send("Access Denied");
+      return res.status(401).json({ message: "Access Denied" });
     }
   },
 };

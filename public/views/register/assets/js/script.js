@@ -10,6 +10,8 @@ var params = {
 var anim;
 anim = lottie.loadAnimation(params);
 
+let messageToBackEnd = "";
+let status = 0;
 let name = document.querySelector("#name");
 let username = document.querySelector("#username");
 let email = document.querySelector("#email");
@@ -30,7 +32,6 @@ function register() {
     alert("Password not Match");
     return;
   }
-  console.log("OK");
 
   let userInfo = {
     name: name.value,
@@ -45,19 +46,17 @@ function register() {
   };
   fetch("http://localhost:5000/register", options)
     .then((resp) => {
-      if (!resp.ok) {
-        throw Error(resp.error);
-      }
-      console.log(resp);
+      status = resp.status;
+      return resp.json();
     })
-    .catch((error) => {
-      console.log(error.message);
+    .then((resp) => {
+      if (status != 200) {
+        messageToBackEnd = resp.message;
+      } else {
+        messageToBackEnd = "User created";
+        clearFields();
+      }
     });
-
-  // "name":"Rafaela", 3
-  // "username":"Rafa", 3
-  // "email":"rafa@gmail.com", 6
-  // "password":"123456789"  6
 }
 
 function validatePassword() {
@@ -77,4 +76,12 @@ function validField() {
     error = `Ok`;
   }
   return error;
+}
+
+function clearFields() {
+  document.querySelector("#name").value = "";
+  document.querySelector("#username").value = "";
+  document.querySelector("#email").value = "";
+  document.querySelector("#password").value = "";
+  document.querySelector("#confirmPassword").value = "";
 }
