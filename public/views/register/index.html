@@ -14,8 +14,7 @@
     <div class="animation"></div>
 
     <div class="containerForm">
-      <img src="../iconPng.png" alt="" />
-      <form class="form" method="POST">
+      <form class="form" action="http://localhost:5000/register" method="POST">
         <h1>Welcome to Chat!</h1>
 
         <div class="div-name">
@@ -24,10 +23,11 @@
             name="name"
             id="name"
             autocomplete="off"
+            minlength="3"
             required
           />
           <label for="lbl-name" class="lbl-name">
-            <span class="txt-name">Name</span>
+            <span class="txt-name">Name (3 characters minimum)</span>
           </label>
         </div>
 
@@ -36,11 +36,12 @@
             type="text"
             name="username"
             id="username"
+            minlength="3"
             autocomplete="off"
             required
           />
           <label for="lbl-username" class="lbl-username">
-            <span class="txt-username">Username</span>
+            <span class="txt-username">Username (3 characters minimum)</span>
           </label>
         </div>
 
@@ -50,10 +51,11 @@
             type="email"
             name="email"
             id="email"
+            minlength="6"
             required
           />
           <label for="lbl-email" class="lbl-email">
-            <span class="txt-email">Email</span>
+            <span class="txt-email">Email (6 characters minimum)</span>
           </label>
         </div>
 
@@ -63,10 +65,11 @@
             name="password"
             id="password"
             autocomplete="off"
+            minlength="6"
             required
           />
           <label for="lbl-password" class="lbl-password">
-            <span class="txt-password">Password</span>
+            <span class="txt-password">Password (6 characters minimum)</span>
           </label>
         </div>
 
@@ -74,8 +77,9 @@
           <input
             type="password"
             name="confirm-password"
-            id="confirm-password"
+            id="confirmPassword"
             autocomplete="off"
+            minlength="6"
             required
           />
           <label for="lbl-confirm-password" class="lbl-confirm-password">
@@ -83,7 +87,8 @@
           </label>
         </div>
 
-        <button type="submit" onclick="register()">Login</button>
+        <!-- <button type="submit" onclick="register()">Register</button> -->
+        <button onclick="register()">Register</button>
 
         <div class="login">
           <p>
