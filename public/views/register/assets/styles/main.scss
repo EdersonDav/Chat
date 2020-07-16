@@ -116,6 +116,21 @@
       color: $register_color;
       text-decoration: none;
     }
+
+    .messageReturn {
+      position: relative;
+      margin-top: 30px;
+      font-size: 1.5rem;
+
+      .animationError,
+      .animationSuccess {
+        width: 50px;
+        position: absolute;
+        top: -10px;
+        left: -70px;
+        display: none;
+      }
+    }
   }
 }
 
