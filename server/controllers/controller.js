@@ -89,7 +89,7 @@ const controller = {
     }
     const token = jwt.sign({ id: userSelected._id }, process.env.TOKE_JWT);
     res.header("auth", token);
-    res.send("login");
+    res.json({ message: "login" });
   },
 
   auth: (req, res, next) => {

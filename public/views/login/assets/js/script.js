@@ -2,10 +2,43 @@
 let endMessage = document.querySelector("#endMessage");
 let status = 0;
 
+let email = document.querySelector("#email");
+let password = document.querySelector("#password");
+
 function loginUser() {
-  console.log("foi");
   animationLoading("on");
-  registerErrorOrSuccess("error test");
+  loginInfo = {
+    email: email.value,
+    password: password.value,
+  };
+  console.log(loginInfo);
+  const options = {
+    method: "POST",
+    headers: new Headers({
+      "content-type": "application/json",
+      Accept: "application/json",
+    }),
+    body: JSON.stringify(loginInfo),
+  };
+  console.log(JSON.stringify(loginInfo));
+  fetch("http://localhost:5000/login", options)
+    .then((resp) => {
+      status = resp.status;
+      return resp.json();
+    })
+    .then((resp) => {
+      console.log("entrou");
+      if (status != 200) {
+        animationLoading("off");
+        registerErrorOrSuccess(resp.message, status);
+      } else {
+        animationLoading("off");
+        location.replace("http://localhost:5000/room");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 function registerErrorOrSuccess(message) {
