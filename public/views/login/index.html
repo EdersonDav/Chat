@@ -16,7 +16,7 @@
     </div>
 
     <div class="containerForm">
-      <form class="form" method="POST">
+      <div class="form">
         <h1>Hello my friend</h1>
         <div class="div-email">
           <input
@@ -32,6 +32,7 @@
         </div>
 
         <div class="div-password">
+          <i onclick="showOrHidePassword(this)" class="hide"></i>
           <input
             type="password"
             name="password"
@@ -44,14 +45,20 @@
           </label>
         </div>
 
-        <button type="submit">Login</button>
+        <button id="btn" type="submit" onclick="loginUser()">Login</button>
+        <div class="animationloading"></div>
 
         <div class="register">
           <p>Don't have account? <a href="/registerUser">Sign up</a></p>
         </div>
-      </form>
+        <div class="messageReturn" id="messageReturn">
+          <div class="animationError"></div>
+          <p class="errorTxt" id="endMessage"></p>
+        </div>
+      </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.0/lottie.min.js"></script>
+    <script src="./assets/animations/scrptAnimations.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

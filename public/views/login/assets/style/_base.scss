@@ -15,12 +15,30 @@ $login_color: #19bb3f;
 body {
   height: 100vh;
   display: flex;
-  background-image: linear-gradient(
-    to right top,
-    #4b584e,
-    #45644b,
-    #2a743b,
-    #24973f,
-    #19bb3f
-  );
+  background-image: linear-gradient(to right top, #4b584e, #45644b, #2a743b, #24973f, #19bb3f);
+}
+
+.errorTxt {
+  color: #8d230f;
+}
+
+.eye {
+  content: url("../img/eye.png");
+  width: 5%;
+  position: absolute;
+  bottom: 2px;
+  right: 0%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.hide {
+  content: url("../img/hide.png");
+  width: 5%;
+  position: absolute;
+  bottom: 2px;
+  right: 0%;
+  &:hover {
+    cursor: pointer;
+  }
 }
