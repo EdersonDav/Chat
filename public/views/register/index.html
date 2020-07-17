@@ -60,6 +60,7 @@
         </div>
 
         <div class="div-password">
+          <i onclick="showOrHidePassword(this)" class="hide"></i>
           <input
             type="password"
             name="password"
@@ -74,6 +75,7 @@
         </div>
 
         <div class="div-confirm-password">
+          <i onclick="showOrHidePassword(this)" class="hide"></i>
           <input
             type="password"
             name="confirm-password"
@@ -87,7 +89,9 @@
           </label>
         </div>
 
-        <button onclick="register()">Register</button>
+        <button id="btn" onclick="register()">Register</button>
+
+        <div class="animationloading"></div>
 
         <div class="login">
           <p>
@@ -104,6 +108,7 @@
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.0/lottie.min.js"></script>
+    <script src="./assets/animations/scrptAnimations.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

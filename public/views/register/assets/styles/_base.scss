@@ -23,3 +23,24 @@ body {
 .errorTxt {
   color: #8d230f;
 }
+
+.eye {
+  content: url("../img/eye.png");
+  width: 5%;
+  position: absolute;
+  bottom: 2px;
+  right: 0%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.hide {
+  content: url("../img/hide.png");
+  width: 5%;
+  position: absolute;
+  bottom: 2px;
+  right: 0%;
+  &:hover {
+    cursor: pointer;
+  }
+}

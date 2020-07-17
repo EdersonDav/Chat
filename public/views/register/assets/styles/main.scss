@@ -48,7 +48,7 @@
     }
 
     input {
-      width: 100%;
+      width: 100% - 25%;
       height: 100%;
       color: #595f6e;
       padding-top: 20px;
@@ -109,6 +109,13 @@
       margin-top: 2rem;
       margin-bottom: 2rem;
       box-shadow: 0px 8px 22px -4px #6f00ff;
+      outline: none;
+    }
+    .animationloading {
+      display: none;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      width: 80px;
     }
 
     .login a {

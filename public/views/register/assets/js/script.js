@@ -1,40 +1,3 @@
-//Animation paramns
-var animPageParams = {
-  container: document.querySelector(".animation"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "./assets/js/chat.json",
-};
-
-var animPage;
-animPage = lottie.loadAnimation(animPageParams);
-animPage.setSpeed(0.8);
-
-var animSuccessParams = {
-  container: document.querySelector(".animationSuccess"),
-  renderer: "svg",
-  loop: false,
-  autoplay: false,
-  path: "./assets/js/success.json",
-};
-
-var animSuccess;
-animSuccess = lottie.loadAnimation(animSuccessParams);
-animSuccess.setSpeed(0.5);
-
-var animErrorParams = {
-  container: document.querySelector(".animationError"),
-  renderer: "svg",
-  loop: false,
-  autoplay: false,
-  path: "./assets/js/error.json",
-};
-
-var animError;
-animError = lottie.loadAnimation(animErrorParams);
-animError.setSpeed(0.5);
-
 //Messages
 let endMessage = document.querySelector("#endMessage");
 let status = 0;
@@ -48,7 +11,6 @@ let confirmPassword = document.querySelector("#confirmPassword");
 
 //New user
 function register() {
-  // event.preventDefault();
   let valid = validField();
   if (valid != "Ok") {
     alert(valid);
@@ -60,7 +22,7 @@ function register() {
     alert("Password not Match");
     return;
   }
-
+  animationLoading("on");
   let userInfo = {
     name: name.value,
     username: username.value,
@@ -79,10 +41,15 @@ function register() {
     })
     .then((resp) => {
       if (status != 200) {
-        registerError(resp.message);
+        animationLoading("off");
+        registerErrorOrSuccess(resp.message, status);
       } else {
-        registerSuccess("User created successfully");
+        animationLoading("off");
+        registerErrorOrSuccess("User created successfully", status);
         clearFields();
+        setTimeout(() => {
+          location.replace("http://localhost:5000/");
+        }, 3000);
       }
     });
 }
@@ -114,28 +81,58 @@ function clearFields() {
   document.querySelector("#confirmPassword").value = "";
 }
 
-function registerError(message) {
+function registerErrorOrSuccess(message, status) {
   document.querySelector(".animationError").style.display = "none";
   document.querySelector(".animationSuccess").style.display = "none";
 
-  document.querySelector(".animationError").style.display = "block";
-  if (endMessage.classList.contains("successTxt")) {
-    endMessage.classList.remove("successTxt");
+  if (status != 200) {
+    document.querySelector(".animationError").style.display = "block";
+    if (endMessage.classList.contains("successTxt")) {
+      endMessage.classList.remove("successTxt");
+    }
+    endMessage.classList.add("errorTxt");
+    endMessage.innerHTML = message;
+    animError.play();
+  } else {
+    document.querySelector(".animationSuccess").style.display = "block";
+    if (endMessage.classList.contains("errorTxt")) {
+      endMessage.classList.remove("errorTxt");
+    }
+    endMessage.classList.add("successTxt");
+    endMessage.innerHTML = message;
+    animSuccess.play();
   }
-  endMessage.classList.add("errorTxt");
-  endMessage.innerHTML = message;
-  animError.play();
+}
+function animationLoading(status) {
+  let btn = document.querySelector("#btn");
+  let loading = document.querySelector(".animationloading");
+
+  if (status == "on") {
+    btn.style.display = "none";
+    loading.style.display = "block";
+  } else {
+    btn.style.display = "block";
+    loading.style.display = "none";
+  }
 }
 
-function registerSuccess(message) {
-  document.querySelector(".animationError").style.display = "none";
-  document.querySelector(".animationSuccess").style.display = "none";
-
-  document.querySelector(".animationSuccess").style.display = "block";
-  if (endMessage.classList.contains("errorTxt")) {
-    endMessage.classList.remove("errorTxt");
+function showOrHidePassword(element) {
+  let nextElement = element.nextSibling.nextElementSibling;
+  if (element.classList.contains("hide")) {
+    element.classList.remove("hide");
+    element.classList.add("eye");
+    hideShow(nextElement);
+  } else {
+    element.classList.add("hide");
+    element.classList.remove("eye");
+    hideShow(nextElement);
   }
-  endMessage.classList.add("successTxt");
-  endMessage.innerHTML = message;
-  animSuccess.play();
+}
+
+function hideShow(element) {
+  if (element.type === "password") {
+    element.type = "text";
+  } else {
+    element.type = "password";
+  }
 }
