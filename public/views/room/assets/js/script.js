@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#form_msg");
   username = localStorage.getItem("user");
   if (!username) {
-    location.replace("http://localhost:5000");
+    out();
   }
   document.querySelector(".name").innerHTML = username;
   form.addEventListener("submit", (e) => {
@@ -50,4 +50,8 @@ function setClass(user) {
   } else {
     return "they";
   }
+}
+function out() {
+  localStorage.clear();
+  location.replace("http://localhost:5000");
 }

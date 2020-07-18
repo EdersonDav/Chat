@@ -15,6 +15,24 @@ body {
     #eab695,
     #f2b28b
   );
+  .out {
+    content: url("../img/exit.png");
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    z-index: 10;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media (max-width: 500px) {
+    .out {
+      left: 5px;
+      top: 5px;
+      width: 20px;
+    }
+  }
 }
 
 @mixin shadow() {
