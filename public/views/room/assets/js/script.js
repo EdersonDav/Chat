@@ -31,25 +31,16 @@ function updateMessages(messages) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#form_msg");
+  username = localStorage.getItem("user");
+  if (!username) {
+    location.replace("http://localhost:5000");
+  }
+  document.querySelector(".name").innerHTML = username;
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (!username) {
-      alert("Before entering the chat, register your username");
-      return;
-    }
-    document.querySelector(".name").innerHTML = username;
     const message = document.forms["form_msg_name"]["msg"].value;
     document.forms["form_msg_name"]["msg"].value = "";
     socket.emit("new_connection", { username: username, messages: message });
-  });
-
-  const form_user = document.querySelector("#form_user");
-  form_user.addEventListener("submit", (e) => {
-    e.preventDefault();
-    username = document.forms["form_user_name"]["user"].value;
-    if (username) {
-      form_user.style.display = "none";
-    }
   });
 });
 

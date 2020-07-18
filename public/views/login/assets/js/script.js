@@ -32,6 +32,7 @@ function loginUser() {
         animationLoading("off");
         registerErrorOrSuccess(resp.message, status);
       } else {
+        localStorage.setItem("user", resp.user);
         animationLoading("off");
         location.replace("http://localhost:5000/room");
       }
