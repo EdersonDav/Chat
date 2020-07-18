@@ -75,7 +75,7 @@ const controller = {
     //Selected user in database where email == emais body
     const userSelected = await UserModel.findOne({ email: req.body.email });
     if (!userSelected) {
-      return res.status(400).json({ message: "Email or Passworld not exists" });
+      return res.status(400).json({ message: "Email or Password not exists" });
     }
 
     //compare password, the password database and password body
@@ -84,7 +84,7 @@ const controller = {
       userSelected.password
     );
     if (!verifyPassword) {
-      return res.status(400).json({ message: "Email or Passworld not exists" });
+      return res.status(400).json({ message: "Email or Password not exists" });
     }
     res.json({ message: "login", user: userSelected.username });
   },

@@ -13,13 +13,12 @@ let confirmPassword = document.querySelector("#confirmPassword");
 function register() {
   let valid = validField();
   if (valid != "Ok") {
-    alert(valid);
-    return;
+    registerErrorOrSuccess(valid, 300);
   }
 
   let passwordMatch = validatePassword();
   if (!passwordMatch) {
-    alert("Password not Match");
+    registerErrorOrSuccess("Password not Match", 300);
     return;
   }
   animationLoading("on");
