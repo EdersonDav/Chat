@@ -34,7 +34,7 @@
 
 **You need to install [Node.js](https://nodejs.org/en/download/) then in order to clone the project via HTTPS, run this command:**
 
-`https://github.com/EdersonDav/chat_simple.git`
+`git clone https://github.com/EdersonDav/chat_simple.git`
 
 ### 🍃 Database - Mongodb
 
@@ -78,4 +78,4 @@
 
 [Github](https://github.com/EdersonDav) 👨🏿‍🎓🚀
 
-[LinkedIn](www.linkedin.com/in/silvaedersonqueiroz) 👨🏿‍👔
+[LinkedIn](https://www.linkedin.com/in/silvaedersonqueiroz) 👨🏿‍👔
