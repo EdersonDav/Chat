@@ -5,13 +5,13 @@
 [![Author](https://img.shields.io/badge/author-EdersonDav-000000?style=flat-square)](https://github.com/EdersonDav)
 
 ### Registration Screen
-<p align="center"><img src=".github/register.gif?raw=true"/></p>
+<p align="center"><img src=".github/register.gif?raw=true" width="500"/></p>
 
 ### Login Screen
-<p align="center"><img src=".github/login.gif?raw=true"/></p>
+<p align="center"><img src=".github/login.gif?raw=true" width="500"/></p>
 
 ### Chat Screen
-<p align="center"><img src=".github/chat.gif?raw=true"/></p>
+<p align="center"><img src=".github/chat.gif?raw=true" width="500"/></p>
 
 ---
 
